@@ -84,7 +84,7 @@ def download(url: str, fname: str, chunk_size=1024):
 print("Searching for products: ")
 
 # URL for querying products
-products_url = "https://catalogue.dataspace.copernicus.eu/odata/v1/Products?&$filter=((Collection/Name%20eq%20%27SENTINEL-5P%27%20and%20(Attributes/OData.CSC.StringAttribute/any(att:att/Name%20eq%20%27instrumentShortName%27%20and%20att/OData.CSC.StringAttribute/Value%20eq%20%27TROPOMI%27)%20and%20(contains(Name,%27L2__NO2___%27)%20and%20OData.CSC.Intersects(area=geography%27SRID=4326;POLYGON%20((-8.09%2024.61,%2049.56%2024.61,%2049.56%2066.88,%20-8.09%2066.88,%20-8.09%2024.61))%27)))%20and%20Online%20eq%20true)%20and%20ContentDate/Start%20ge%202023-08-01T00:00:00.000Z%20and%20ContentDate/Start%20lt%202023-12-31T23:59:59.999Z)&$orderby=ContentDate/Start%20desc&$expand=Attributes&$count=True&$top=50&$expand=Assets&$skip=0" #paste OData Querry here
+products_url = "https://catalogue.dataspace.copernicus.eu/odata/v1/Products?&$filter=((Collection/Name%20eq%20%27SENTINEL-5P%27%20and%20(Attributes/OData.CSC.StringAttribute/any(att:att/Name%20eq%20%27instrumentShortName%27%20and%20att/OData.CSC.StringAttribute/Value%20eq%20%27TROPOMI%27)%20and%20(contains(Name,%27L2__NO2___%27)%20and%20OData.CSC.Intersects(area=geography%27SRID=4326;POLYGON%20((-8.09%2024.61,%2049.56%2024.61,%2049.56%2066.88,%20-8.09%2066.88,%20-8.09%2024.61))%27)))%20and%20Online%20eq%20true)%20and%20ContentDate/Start%20ge%202023-08-01T00:00:00.000Z%20and%20ContentDate/Start%20lt%202023-12-31T23:59:59.999Z)&$orderby=ContentDate/Start%20desc&$expand=Attributes&$count=True&$top=1000&$expand=Assets&$skip=0" #paste OData Querry here
 
 session = requests.Session()
 headers = session.headers.update({'Authorization': 'Bearer {}'.format(keycloak_token)})
